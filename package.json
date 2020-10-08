@@ -1,0 +1,20 @@
+{
+  "name": "niceshot",
+  "version": "1.0.0",
+  "description": "Puppeteer screenshot queue",
+  "main": "index.js",
+  "author": "Nikolaj Løvenhardt Petersen",
+  "license": "MIT",
+  "scripts": {
+    "server": "node server.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.769.0",
+    "bee-queue": "^1.2.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "puppeteer": "^5.3.1"
+  }
+}

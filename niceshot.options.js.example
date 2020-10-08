@@ -1,0 +1,23 @@
+module.exports = {
+    api: {
+        port: 6005,
+        token: '',
+    },
+
+    storage: {
+        adapter: 's3',
+
+        options: {
+            bucket: '',
+            access_key_id: '',
+            access_key_secret: '',
+            region: '',
+            directory: ''
+        }
+    },
+
+    webhook: {
+        url: '',
+        secret: ''
+    }
+}
