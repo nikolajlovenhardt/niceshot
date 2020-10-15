@@ -7,6 +7,8 @@ const storage = require('./storage')
 
 function push(data) {
     const job = queue.createJob(data)
+    job.timeout(1000 * 60 * 4)
+    job.retries(2)
     job.save()
 }
 

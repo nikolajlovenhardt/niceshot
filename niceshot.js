@@ -12,7 +12,12 @@ async function capture(url, options) {
         deviceScaleFactor: 1
     });
 
-    await page.goto(url, {waitUntil: 'networkidle2'});
+    console.log(`Navigating to ${url}`)
+
+    await page.goto(url, {
+        waitUntil: 'networkidle2',
+        timeout: 1000 * 60 * 2
+    })
 
     /**
      * Takes a screenshot of a DOM element on the page, with optional padding.
@@ -49,6 +54,10 @@ async function capture(url, options) {
             }
         });
     }
+
+    console.log('Awaiting event')
+
+    await page.waitForSelector(selector)
 
     await screenshotDOMElement({
         path: `tmp/${filename}`,
