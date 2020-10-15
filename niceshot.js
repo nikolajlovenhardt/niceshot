@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer')
 async function capture(url, options) {
     const { filename, selector } = options
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({args: ['--no-sandbox', '--font-render-hinting=none']});
     const page = await browser.newPage();
 
     page.setViewport({
