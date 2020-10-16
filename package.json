@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.769.0",
+    "axios": "^0.20.0",
     "bee-queue": "^1.2.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",

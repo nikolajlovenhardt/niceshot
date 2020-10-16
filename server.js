@@ -18,11 +18,12 @@ app.get('/', (req, res) => {
 app.post('/queue', (req, res) => {
   console.log('Pushed to queue')
 
-  const { url, selector} = req.body
+  const { url, selector, callback } = req.body
 
   queue.push({
       url,
-      selector
+      selector,
+      callback,
   })
 
   res.status(201).end();

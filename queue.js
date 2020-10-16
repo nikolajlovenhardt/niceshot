@@ -5,6 +5,8 @@ const niceshot = require('./niceshot')
 
 const storage = require('./storage')
 
+const axios = require('axios')
+
 function push(data) {
     const job = queue.createJob(data)
     job.timeout(1000 * 60 * 4)
@@ -29,7 +31,10 @@ async function process(job, done) {
 
     const options = {...job.data, filename}
 
-    await niceshot.capture(options.url, options)
+    const { url, selector, callback } = job.data
+    const niceshotOptions = { url, selector, filename }
+
+    await niceshot.capture(options.url, niceshotOptions)
 
     storage.upload(filename)
         .then(uploadedFile => {
@@ -38,6 +43,14 @@ async function process(job, done) {
         .catch(err => {
             done(null, {success: false})
         })
+
+    if (callback !== undefined) {
+        axios.post(callback, {
+            body: {
+                filename
+            }
+        })
+    }
 
     return done(null, {
         filename
