@@ -46,9 +46,7 @@ async function process(job, done) {
 
     if (callback !== undefined) {
         axios.post(callback, {
-            body: {
-                filename
-            }
+            filename
         })
     }
 
