@@ -12,7 +12,7 @@ async function capture(url, options) {
 
     page.setViewport({
         width: 1000,
-        height: 600,
+        height: 1000,
         deviceScaleFactor: 1
     });
 
