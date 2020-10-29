@@ -1,5 +1,9 @@
 const puppeteer = require('puppeteer')
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function capture(url, options) {
     const { filename, selector } = options
 
@@ -58,6 +62,8 @@ async function capture(url, options) {
     console.log('Awaiting event')
 
     await page.waitForSelector(selector)
+
+    await sleep(2000)
 
     await screenshotDOMElement({
         path: `tmp/${filename}`,
