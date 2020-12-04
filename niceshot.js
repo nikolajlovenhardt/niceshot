@@ -7,8 +7,8 @@ async function capture(url, options) {
     const page = await browser.newPage();
 
     page.setViewport({
-        width: 1000,
-        height: 1000,
+        width: 1200,
+        height: 1200,
         deviceScaleFactor: 1
     });
 
