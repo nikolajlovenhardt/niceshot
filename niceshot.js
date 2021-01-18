@@ -57,7 +57,15 @@ async function capture(url, options) {
 
     console.log('Awaiting event')
 
-    await page.waitForSelector(selector)
+    try {
+        await page.waitForSelector(selector, {
+            timeout: 10 * 1000
+        })
+    } catch (err) {
+        browser.close()
+
+        return
+    }
 
     await screenshotDOMElement({
         path: `tmp/${filename}`,
