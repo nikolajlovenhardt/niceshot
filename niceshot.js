@@ -59,7 +59,7 @@ async function capture(url, options) {
 
     try {
         await page.waitForSelector(selector, {
-            timeout: 10 * 1000
+            timeout: 25 * 1000
         })
     } catch (err) {
         browser.close()
