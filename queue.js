@@ -21,6 +21,9 @@ function uniqid() {
     for(let i = 0; i < ts.length; i += 2) {
         out += Number(ts.substr(i, 2)).toString(36)
     }
+
+    out += Math.random().toString(36).substr(2, 9)
+
     return 'niceshot_' + out;
 }
 
